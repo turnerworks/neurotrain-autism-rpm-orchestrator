@@ -16,6 +16,71 @@
     📦 SIDINGS = BUFFER
 ────────────────────────────────────────────
 
+## 🗺️ System Architecture
+
+```mermaid
+flowchart TD
+    subgraph UserZone["👤 USER ZONE"]
+        User["🧠 Neurodivergent User"]
+    end
+
+    subgraph TrainYard["🚂 NEUROTRAIN YARD"]
+        direction TB
+        Intake["📥 Task Intake Station"]
+        
+        subgraph Tracks["🛤️ EXECUTION TRACKS"]
+            Track1["Track 1: High Priority"]
+            Track2["Track 2: Standard"]
+            Track3["Track 3: Background"]
+        end
+        
+        subgraph Switches["🔄 LOGIC SWITCHES"]
+            Switch1{"Priority Check"}
+            Switch2{"Context Match"}
+        end
+        
+        subgraph Sidings["📦 BUFFER SIDINGS"]
+            Siding1["Waiting Bay 1"]
+            Siding2["Waiting Bay 2"]
+        end
+        
+        Signals["🚥 Status Signals"]
+        Output["✅ Completed Tasks"]
+    end
+
+    subgraph Backend["⚙️ BACKEND SYSTEMS"]
+        Context["Context Persistence"]
+        Hyperfocus["Hyperfocus Manager"]
+        Visual["3D Visualization"]
+    end
+
+    User -->|New Task| Intake
+    Intake --> Switch1
+    Switch1 -->|Urgent| Track1
+    Switch1 -->|Normal| Switch2
+    Switch2 -->|Match| Track2
+    Switch2 -->|No Match| Siding1
+    Track1 --> Signals
+    Track2 --> Signals
+    Track3 --> Signals
+    Siding1 -.->|When Ready| Track3
+    Signals --> Output
+    Output -->|Feedback| User
+    
+    Context --> Sidings
+    Hyperfocus --> Tracks
+    Visual --> TrainYard
+
+    style UserZone fill:#4CAF50,color:#fff
+    style TrainYard fill:#40C4D4,color:#000
+    style Backend fill:#FFF9C4,color:#000
+    style Tracks fill:#E3F2FD,color:#000
+    style Switches fill:#FCE4EC,color:#000
+    style Sidings fill:#F3E5F5,color:#000
+```
+
+---
+
 ## 🎯 What This Project Is
 
 This repo captures the **"Autism Max Presentation"** session—a live experiment in turning hyperfocus and neurodivergent thinking into a buildable product[web:2].
